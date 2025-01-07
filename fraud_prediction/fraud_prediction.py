@@ -83,19 +83,15 @@ predictions.select('features', 'label', 'prediction').show(10)
 from pyspark.sql.functions import col
 
 # Calculate TP, FP, FN, TN
-tp = predictions.filter((col("label") == 1) & (col("prediction") == 1)).count()
+tp = float(predictions.filter((col("label") == 1) & (col("prediction") == 1)).count())
 fp = predictions.filter((col("label") == 0) & (col("prediction") == 1)).count()
 fn = predictions.filter((col("label") == 1) & (col("prediction") == 0)).count()
 tn = predictions.filter((col("label") == 0) & (col("prediction") == 0)).count()
 
-print(tp)
-print(fp)
-print(fn)
-print(tn)
-x=tp+fp
-y=tp+tn
-print(x)
-print(y)
+
+x=float(tp+fp)
+y=float(tp+tn)
+
 # Calculate Precision, Recall, F1 Score
 precision = tp/x
 recall = tp/y 
