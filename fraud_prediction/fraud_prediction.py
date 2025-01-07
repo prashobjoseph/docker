@@ -101,7 +101,7 @@ print("F1 Score: {}".format(f1_score))
 # ---------------------------
 # 5. Predict Single Record
 # ---------------------------
-print("🔍 Predicting a single record...")
+print("Predicting a single record...")
 
 # Example Record for Prediction
 sample_data = [(100.0, 84002,50000, 25)]  # Example: 'amt', 'zip', 'population','Age'
