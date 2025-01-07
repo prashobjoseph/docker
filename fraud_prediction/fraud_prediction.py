@@ -142,8 +142,9 @@ matching_count = result_df.filter(result_df['is_fraud'] == result_df['is_fraud_p
 non_matching_count = result_df.filter(result_df['is_fraud'] != result_df['is_fraud_predicted']).count()
 
 # Display results
-print(f" Matching Count: {matching_count}")
-print(f" Non-Matching Count: {non_matching_count}")
+print("Matching Count: {}".format(matching_count))
+print("Non-Matching Count: {}".format(non_matching_count))
+
 
 # Write the result DataFrame to a new Hive table
 result_df.write.mode("overwrite").saveAsTable("bigdata_nov_2024.sop_credit_trans_predicted1")
