@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-      - name: frauddetection
+      - name: pyspark
         image: prashobjoseph/docker_fraud_prediction:fraud_prediction_tag
       restartPolicy: Never
   backoffLimit: 4
