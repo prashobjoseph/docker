@@ -96,6 +96,8 @@ print(tn)
 # Calculate Precision, Recall, F1 Score
 precision = tp / (tp + fp) 
 recall = tp / (tp + fn) 
+print(precision)
+print(recall)
 f1_score = 2 * (precision * recall) / (precision + recall)
 
 print("Precision: {}".format(precision))
