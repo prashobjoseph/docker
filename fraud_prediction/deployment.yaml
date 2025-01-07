@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: fraud_prediction
+  name: fraudprediction
 spec:
   template:
     spec:
