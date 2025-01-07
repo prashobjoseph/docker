@@ -94,6 +94,8 @@ print(fn)
 print(tn)
 x=tp+fp
 y=tp+tn
+print(x)
+print(y)
 # Calculate Precision, Recall, F1 Score
 precision = tp/x
 recall = tp/y 
@@ -105,6 +107,11 @@ print("Precision: {}".format(precision))
 print("Recall: {}".format(recall))
 print("F1 Score: {}".format(f1_score))
 
+# Select the necessary columns (true labels and predictions)
+predictions1 = predictions.select("label", "prediction")
+
+# Initialize the evaluator for precision, recall, and F1 score
+evaluator = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="prediction")
 
 # ---------------------------
 # 5. Predict Single Record
