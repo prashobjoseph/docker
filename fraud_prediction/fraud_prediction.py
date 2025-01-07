@@ -55,12 +55,12 @@ prepared_df = indexer.fit(prepared_df).transform(prepared_df)
 # ---------------------------
 # 4. Build and Train Model
 # ---------------------------
-print("🤖 Training the model...")
+print(" Training the model...")
 
 # Split data into training and testing sets
-print("📊 Splitting data into training and testing sets...")
+print(" Splitting data into training and testing sets...")
 train_df, test_df = prepared_df.randomSplit([0.8, 0.2], seed=42)
-print(f"✅ Training Set: {train_df.count()} rows, Testing Set: {test_df.count()} rows")
+print(f" Training Set: {train_df.count()} rows, Testing Set: {test_df.count()} rows")
 
 # Define Logistic Regression Model
 lr = LogisticRegression(featuresCol='features', labelCol='label', maxIter=10)
@@ -71,7 +71,7 @@ model = lr.fit(train_df)
 predictions = model.transform(test_df)
 evaluator = BinaryClassificationEvaluator(labelCol='label')
 auc = evaluator.evaluate(predictions)
-print(f"✅ Model AUC: {auc}")
+print(f" Model AUC: {auc}")
 
 # Display Predictions
 predictions.select('features', 'label', 'prediction').show(10)
@@ -89,9 +89,9 @@ precision = tp / (tp + fp)
 recall = tp / (tp + fn) 
 f1_score = 2 * (precision * recall) / (precision + recall)
 
-print(f"✅ Precision: {precision}")
-print(f"✅ Recall: {recall}")
-print(f"✅ F1 Score: {f1_score}")
+print(f" Precision: {precision}")
+print(f" Recall: {recall}")
+print(f" F1 Score: {f1_score}")
 
 # ---------------------------
 # 5. Predict Single Record
@@ -114,9 +114,9 @@ result
 
 
 if result == 1.0:
-    print("🚨 This transaction is predicted to be FRAUDULENT!")
+    print(" This transaction is predicted to be FRAUDULENT!")
 else:
-    print("✅ This transaction is predicted to be LEGITIMATE.")
+    print(" This transaction is predicted to be LEGITIMATE.")
 
 #creating data frame with predicted value for the entire data
 
@@ -137,13 +137,13 @@ matching_count = result_df.filter(result_df['is_fraud'] == result_df['is_fraud_p
 non_matching_count = result_df.filter(result_df['is_fraud'] != result_df['is_fraud_predicted']).count()
 
 # Display results
-print(f"✅ Matching Count: {matching_count}")
-print(f"❌ Non-Matching Count: {non_matching_count}")
+print(f" Matching Count: {matching_count}")
+print(f" Non-Matching Count: {non_matching_count}")
 
 # Write the result DataFrame to a new Hive table
 result_df.write.mode("overwrite").saveAsTable("bigdata_nov_2024.sop_credit_trans_predicted1")
 
-print("✅ Successfully written to Hive table: bigdata_nov_2024.sop_credit_trans_predicted1")
+print(" Successfully written to Hive table: bigdata_nov_2024.sop_credit_trans_predicted1")
 
 # ---------------------------
 # 6. Stop Spark Session
