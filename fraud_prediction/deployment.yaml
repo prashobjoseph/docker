@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fraud_prediction
+spec:
+  template:
+    spec:
+      containers:
+      - name: pyspark
+        image: prashobjoseph/fraud_prediction:fraud_prediction_tag
+      restartPolicy: Never
+  backoffLimit: 4
