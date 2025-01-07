@@ -92,10 +92,11 @@ print(tp)
 print(fp)
 print(fn)
 print(tn)
-
+x=tp+fp
+y=tp+tn
 # Calculate Precision, Recall, F1 Score
-precision = tp / (tp + fp) 
-recall = tp / (tp + fn) 
+precision = tp/x
+recall = tp/y 
 print(precision)
 print(recall)
 f1_score = 2 * (precision * recall) / (precision + recall)
