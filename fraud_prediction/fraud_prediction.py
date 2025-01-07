@@ -60,7 +60,9 @@ print(" Training the model...")
 # Split data into training and testing sets
 print(" Splitting data into training and testing sets...")
 train_df, test_df = prepared_df.randomSplit([0.8, 0.2], seed=42)
-print(f" Training Set: {train_df.count()} rows, Testing Set: {test_df.count()} rows")
+#print(f" Training Set: {train_df.count()} rows, Testing Set: {test_df.count()} rows")
+print("Training Set: {} rows, Testing Set: {} rows".format(train_df.count(), test_df.count()))
+
 
 # Define Logistic Regression Model
 lr = LogisticRegression(featuresCol='features', labelCol='label', maxIter=10)
@@ -71,7 +73,9 @@ model = lr.fit(train_df)
 predictions = model.transform(test_df)
 evaluator = BinaryClassificationEvaluator(labelCol='label')
 auc = evaluator.evaluate(predictions)
-print(f" Model AUC: {auc}")
+#print(f" Model AUC: {auc}")
+print("Model AUC: {}".format(auc))
+
 
 # Display Predictions
 predictions.select('features', 'label', 'prediction').show(10)
@@ -89,9 +93,10 @@ precision = tp / (tp + fp)
 recall = tp / (tp + fn) 
 f1_score = 2 * (precision * recall) / (precision + recall)
 
-print(f" Precision: {precision}")
-print(f" Recall: {recall}")
-print(f" F1 Score: {f1_score}")
+print("Precision: {}".format(precision))
+print("Recall: {}".format(recall))
+print("F1 Score: {}".format(f1_score))
+
 
 # ---------------------------
 # 5. Predict Single Record
