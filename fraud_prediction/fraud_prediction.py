@@ -158,9 +158,9 @@ print("Non-Matching Count: {}".format(non_matching_count))
 
 
 # Write the result DataFrame to a new Hive table
-result_df.write.mode("overwrite").saveAsTable("bigdata_nov_2024.sop_credit_trans_predicted1")
+result_df.write.mode("overwrite").saveAsTable("bigdata_nov_2024.sop_credit_trans_predicted")
 
-print(" Successfully written to Hive table: bigdata_nov_2024.sop_credit_trans_predicted1")
+print(" Successfully written to Hive table: bigdata_nov_2024.sop_credit_trans_predicted")
 
 # ---------------------------
 # 6. Stop Spark Session
