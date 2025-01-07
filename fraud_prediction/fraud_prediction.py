@@ -95,8 +95,7 @@ y=float(tp+tn)
 # Calculate Precision, Recall, F1 Score
 precision = tp/x
 recall = tp/y 
-print(precision)
-print(recall)
+
 f1_score = 2 * (precision * recall) / (precision + recall)
 
 print("Precision: {}".format(precision))
