@@ -88,6 +88,11 @@ fp = predictions.filter((col("label") == 0) & (col("prediction") == 1)).count()
 fn = predictions.filter((col("label") == 1) & (col("prediction") == 0)).count()
 tn = predictions.filter((col("label") == 0) & (col("prediction") == 0)).count()
 
+print(tp)
+print(fp)
+print(fn)
+print(tn)
+
 # Calculate Precision, Recall, F1 Score
 precision = tp / (tp + fp) 
 recall = tp / (tp + fn) 
