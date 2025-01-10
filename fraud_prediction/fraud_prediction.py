@@ -87,7 +87,10 @@ tp = float(predictions.filter((col("label") == 1) & (col("prediction") == 1)).co
 fp = predictions.filter((col("label") == 0) & (col("prediction") == 1)).count()
 fn = predictions.filter((col("label") == 1) & (col("prediction") == 0)).count()
 tn = predictions.filter((col("label") == 0) & (col("prediction") == 0)).count()
-
+print("tp:{}".format(tp))
+print("fp:{}".format(fp))
+print("fn:{}".format(fn))
+print("tn:{}".format(tn))
 
 x=float(tp+fp)
 y=float(tp+tn)
